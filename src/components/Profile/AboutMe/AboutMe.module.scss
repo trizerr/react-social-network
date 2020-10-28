@@ -1,0 +1,21 @@
+.about{
+  grid-area: 2 / 1;
+  padding-left: 20px;
+  .avatar{
+    width:35%;
+    height: 90%;
+    border: 2px black solid;
+    border-radius: 3000px;
+    background-color: white;
+    margin-right: 10px;
+}
+  .info{
+    display: inline-grid ;
+    vertical-align: 7em;
+    font-size:18px;
+    padding:20px;
+    background: #2d2d2d;
+    border-radius: 20px;
+    border:1px black solid;
+}
+}

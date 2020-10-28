@@ -1,0 +1,12 @@
+.nav{
+    grid-area: nav;
+    display: inline-grid;
+    align-items: center;
+    align-content: center;
+    grid-template-rows: repeat(8,12.5%) ;
+    grid-template-columns: 100%;
+    font-size: 18px;
+    .item{
+
+    }
+}

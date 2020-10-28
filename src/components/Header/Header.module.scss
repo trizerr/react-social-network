@@ -1,0 +1,14 @@
+
+header{
+    grid-area: header;
+    .title{
+        width: 80px;
+        white-space: nowrap;
+        display: inline-block;
+        vertical-align: middle;
+        padding-bottom: 30px;
+    }
+    img{
+        width: 50px;
+    }
+}
