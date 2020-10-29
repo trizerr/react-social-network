@@ -1,0 +1,23 @@
+@import './../../../mixins/mixins';
+
+.postWrapper{
+  display: inline-grid ;
+  grid-template-columns: 8fr 150px;
+  grid-template-rows: 50% ;
+  grid-gap: 10px 60px;
+  font-size: 17px;
+  .postTitle{
+    grid-column-start: span 2;
+    font-size: 30px;
+  }
+  input[type=text]{
+    height:40px;
+    font-size: 17px;
+    padding-left: 10px;
+    border-radius: 10px;
+    border: none;
+  }
+  input[type=button]{
+    @include button;
+  }
+}
