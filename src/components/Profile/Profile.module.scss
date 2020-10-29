@@ -1,32 +1,5 @@
-@import './../../mixins/mixins';
-.postWrapper{
-    display: inline-grid ;
-    grid-template-columns: 8fr 150px;
-    grid-template-rows: 50% ;
-    grid-gap: 10px 60px;
-    font-size: 17px;
-    .postTitle{
-        grid-column-start: span 2;
-        font-size: 30px;
-    }
-    input[type=text]{
-        height:40px;
-        font-size: 17px;
-        padding-left: 10px;
-        border-radius: 10px;
-        border: none;
-    }
-   input[type=button]{
-        @include button;
-    }
-}
 
-.content{
-    grid-area:content;
-    display: inline-grid;
-    grid-template-rows: 400px 1fr 2fr ;
-    grid-template-columns: 100%;
-    grid-gap:20px 0px;
+
     .background{
         background-image: url('./../../img/back.jpg');
         background-repeat: no-repeat;
@@ -36,4 +9,9 @@
         grid-template-rows: 50% 50%;
         grid-template-columns: 40% 60%;
     }
+.profileContent{
+    display: inline-grid;
+    grid-template-rows: 400px 1fr 2fr ;
+    grid-template-columns: 100%;
+    grid-gap:20px 0px;
 }

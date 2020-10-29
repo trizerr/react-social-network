@@ -2,21 +2,18 @@ import avatar from "./../../img/avatar.png";
 import s from './Profile.module.scss';
 import MyPosts from "./MyPosts/MyPosts";
 import AboutMe from "./AboutMe/AboutMe";
+import PostInput from "./PostInput/PostInput";
 
 
 const Profile = () => {
     return (
-        <main className={s.content}>
+        <div className={s.profileContent}>
             <div className={s.background}>
                 <AboutMe />
             </div>
-            <div className={s.postWrapper}>
-                <span className={s.postTitle}>My Posts</span>
-                <input type="text" placeholder="Your news"/>
-                <input type="button" value="Send"/>
-            </div>
+            <PostInput />
             <MyPosts />
-        </main>
+        </div>
     );
 }
 
