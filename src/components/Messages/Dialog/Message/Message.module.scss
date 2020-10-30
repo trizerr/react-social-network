@@ -1,9 +1,10 @@
-$who:'';
+
 .container {
   border: 2px solid #dedede;
   border-radius: 5px;
   padding: 10px;
   margin: 10px 0;
+  background-color: #2d2d2d;
   img {
     float: left;
     max-width: 60px;
@@ -13,13 +14,13 @@ $who:'';
     border-radius: 50%;
     border: 1px black solid;
     &.right {
-      $who:'me' !global;
+
       float: right;
       margin-left: 20px;
       margin-right:0;
     }
     &.left{
-      $who:'friend' !global;
+
     }
   }
   &::after {
@@ -50,18 +51,3 @@ $who:'';
   float: left;
   color: #999;
 }
-
-@if($who=='me'){
-.container{
- // background-color: #2d2d2d;
-  background-color: blue;
-}
-}
-
-@if($who=='friend'){
-
-  .container{
-    //background-color: #404345;
-    background-color: red;
-  }
- }

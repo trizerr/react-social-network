@@ -1,9 +1,9 @@
-import s from "./AboutMe.module.scss";
+import s from "./ProfileInfo.module.scss";
 import avatar from "../../../img/avatar.png";
 import Profile from "../Profile";
 
 
-const AboutMe = () =>{
+const ProfileInfo = () =>{
     return(
         <div className={s.about}>
             <img src={avatar} className={s.avatar}/>
@@ -16,4 +16,4 @@ const AboutMe = () =>{
         </div>
     );
 }
-export default AboutMe;
+export default ProfileInfo;
