@@ -1,12 +1,11 @@
 .app-wrapper{
-  margin-left:10%;
-  margin-right:10%;
+
   display: grid;
   grid-template-areas:
-  "header header "
-  "nav content ";
-  grid-template-rows: 60px 1fr;
-  grid-template-columns: 1fr 10fr;
+  "header header header header"
+  ". nav content .";
+  grid-template-rows: 70px 1fr;
+  grid-template-columns:1fr 1fr 8fr 1fr;
   grid-gap: 10px;
 
 }
@@ -16,6 +15,7 @@ a{
   color:white;
 }
 .app-wrapper-content{
+
   grid-area:content;
   display: inline-grid;
 

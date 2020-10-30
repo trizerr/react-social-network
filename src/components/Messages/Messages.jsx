@@ -1,10 +1,15 @@
 import s from './Messages.module.scss';
+import MessagesPeople from "./MessagesPeople/MessagesPeople";
+import Dialog from "./Dialog/Dialog";
 
 
-const Messages = (props) => {
+const Messages = () => {
     return (
-      <div>
-          Dialogs
+      <div className={s.content}>
+          <div className={s.people}>
+              <MessagesPeople />
+          </div>
+        <Dialog />
       </div>
     );
 }
