@@ -1,5 +1,8 @@
 .person{
-  padding-bottom: 30px;
+  border:2px #2d2d2d solid;
+  border-radius: 5px;
+  padding: 10px;
+  margin-right: 10px;
   .avatar{
     width:80px;
     height:80px;
@@ -10,5 +13,9 @@
     vertical-align: 2em;
     font-size:20px;
     padding-left: 20px;
+  }
+  &:hover{
+    border:2px white solid;
+    cursor: pointer;
   }
 }
