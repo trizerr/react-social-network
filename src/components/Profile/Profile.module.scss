@@ -6,12 +6,12 @@
         background-size: cover;
         background-position: center center;
         display: inline-grid;
-        grid-template-rows: 50% 50%;
+        grid-template-rows: 40% 50% 10%;
         grid-template-columns: 40% 60%;
     }
 .profileContent{
     display: inline-grid;
-    grid-template-rows: 400px 1fr 2fr ;
+    grid-template-rows: 400px 50px 40px 1fr ;
     grid-template-columns: 100%;
     grid-gap:20px 0px;
 }

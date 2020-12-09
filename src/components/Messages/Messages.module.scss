@@ -1,8 +1,14 @@
 .content{
   display: inline-grid;
   grid-template-columns: 2fr 8fr;
-  grid-template-rows: 100%;
+  grid-template-rows: 9fr 1fr;
 }
 .people{
   padding-top: 10px;
+}
+.input{
+  display: inline-grid;
+  grid-template-rows: 100%;
+  grid-column-start: 2 !important;
+  grid-row-start: 2 !important;
 }

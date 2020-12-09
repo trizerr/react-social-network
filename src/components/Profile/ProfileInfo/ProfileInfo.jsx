@@ -1,9 +1,7 @@
 import s from "./ProfileInfo.module.scss";
 import avatar from "../../../img/avatar.png";
-import Profile from "../Profile";
 
-
-const ProfileInfo = () =>{
+const ProfileInfo = (props) =>{
     return(
         <div className={s.about}>
             <img src={avatar} className={s.avatar}/>

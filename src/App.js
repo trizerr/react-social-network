@@ -10,21 +10,27 @@ import Profile from "./components/Profile/Profile";
 import s from "./components/Profile/Profile.module.scss";
 import {BrowserRouter, Switch} from "react-router-dom";
 import {Route} from "react-router-dom";
-
 import Messages from "./components/Messages/Messages";
 
-const App = () => {
+const App = (props) => {
+
   return(
       <BrowserRouter>
     <div className="app-wrapper">
       <Header />
       <Sidebar />
       <main className="app-wrapper-content">
-        <Switch>
-              <Route path='/profile' component={Profile}/>
-              <Route path='/messages' component={Messages}/>
-              <Route path='/' component={Profile}/>
-        </Switch>
+              <Route path='/profile' render={() => (
+                  <Profile state={props.state.profilePage}
+                           dispatch={props.dispatch}/>
+              )}/>
+              <Route path='/messages' render={() => (
+                  <Messages state={props.state.messagePage} dispatch={props.dispatch}/>
+              )}/>
+              <Route exact path='/' render={() => (
+                  <Profile state={props.state.profilePage}
+                           dispatch={props.dispatch}/>
+              )}/>
       </main>
     </div>
       </BrowserRouter>

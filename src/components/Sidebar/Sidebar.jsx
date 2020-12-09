@@ -1,7 +1,7 @@
 import s from './Sidebar.module.scss'
 import {NavLink} from "react-router-dom";
 
-const Sidebar = () => {
+const Sidebar = (props) => {
     return (
         <nav className={s.nav}>
             <div className={s.item}>
@@ -9,6 +9,9 @@ const Sidebar = () => {
             </div>
             <div className={s.item}>
                 <NavLink to="/messages" activeClassName={s.activeLink}>Messages </NavLink>
+            </div>
+            <div className={s.item}>
+                <NavLink to="/friends" activeClassName={s.activeLink}>Friends </NavLink>
             </div>
             <div className={s.item}>
                 <NavLink to="/news" activeClassName={s.activeLink} >News </NavLink>

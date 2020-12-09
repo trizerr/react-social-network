@@ -1,14 +1,10 @@
 import s from './MessagesPeople.module.scss'
-import  Person from "./MessagesPerson/Person";
+import  Person from "./Person/Person";
 
-const MessagesPeople = () => {
-    let messagesPeopleData = [
-        {name:"Denys", id:1},
-        {name:"Andrew", id:2},
-        {name:"Bogdan", id:3}
-    ]
+const MessagesPeople = (props) => {
 
-    let messagesPeopleElements = messagesPeopleData
+
+    let messagesPeopleElements = props.messagesPeopleData
         .map(el => <Person name={el.name} id={el.id}/>);
 
     return (
