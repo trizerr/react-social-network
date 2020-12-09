@@ -1,6 +1,6 @@
 import s from './Input.module.scss';
 import React from "react";
-import {addPostActionCreator, pageInputChangeActionCreator} from "../../../redux/state";
+import {addPostActionCreator, pageInputChangeActionCreator} from "../../../redux/profileReducer";
 
 let inputElement = React.createRef();
 

@@ -1,6 +1,6 @@
 import s from './Input.module.scss';
 import React from "react";
-import {addMessageActionCreator, messageInputChangeActionCreator} from "../../../redux/state";
+import {addMessageActionCreator, messageInputChangeActionCreator} from "../../../redux/messagesReducer";
 
 let inputElement = React.createRef();
 

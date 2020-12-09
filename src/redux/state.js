@@ -1,7 +1,5 @@
-const ADD_POST = 'ADD-POST';
-const PAGE_INPUT_CHANGE = 'PAGE-INPUT-CHANGE';
-const MESSAGE_INPUT_CHANGE = 'MESSAGE-INPUT-CHANGE';
-const ADD_MESSAGE = 'ADD-MESSAGE';
+import {messagesReducer} from "./messagesReducer";
+import {profileReducer} from "./profileReducer";
 export let store = {
     _state: {
         messagePage:{
@@ -45,48 +43,11 @@ export let store = {
         console.log('rendering')
     },
     dispatch(action){
-        debugger;
-        switch(action.type){
-            case ADD_POST:
-                let object ={
-                    id:4,
-                    message:this._state.profilePage.postInput,
-                    likesCount:1
-                };
-                this._state.profilePage.postData.push(object); // add new post
-                this.dispatch({type:'PAGE-INPUT-CHANGE',text:''});
-                this._renderTree(this._state);
-                break;
-            case PAGE_INPUT_CHANGE:
-                this._state.profilePage.postInput=action.text; //update input text
-                this._renderTree(this._state);
-                break;
-            case ADD_MESSAGE:
-                let MESSAGE ={
-                    who : 'me',
-                    id:4,
-                    text:this._state.messagePage.messageInput,
-                };
-                this._state.messagePage.messagesData.push(MESSAGE);
-                this.dispatch({type:'MESSAGE-INPUT-CHANGE',text:''});
-                this._renderTree(this._state);
-                break;
-            case MESSAGE_INPUT_CHANGE:
-                this._state.messagePage.messageInput=action.text; //update messages input text
-                this._renderTree(this._state);
-                break;
-        }
+        this._state.messagePage = messagesReducer(this._state.messagePage, action);
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._renderTree(this._state);
     },
     subscribe(observer){
         this._renderTree = observer;
     }
 }
-//profile actions
-export let addPostActionCreator = () => ({type:ADD_POST})
-export let pageInputChangeActionCreator = (text) =>
-    ({type:PAGE_INPUT_CHANGE, text:text})
-
-//messages actions
-export let addMessageActionCreator = () => ({type:ADD_MESSAGE})
-export let messageInputChangeActionCreator = (text) =>
-    ({type:MESSAGE_INPUT_CHANGE, text:text})
