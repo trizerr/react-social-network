@@ -6,6 +6,9 @@ import Input from "./Input/Input";
 import ProfileNav from "./ProfileNav/ProfileNav";
 import {BrowserRouter, Route} from "react-router-dom";
 import Friends from "./Friends/Friends";
+import InputContainer from "./Input/InputContainer";
+import MyPostsContainer from "./MyPosts/MyPostsContainer";
+import FriendsContainer from "./Friends/FriendsContainer";
 
 
 const Profile = (props) => {
@@ -16,16 +19,16 @@ const Profile = (props) => {
                     <ProfileInfo />
                 </div>
                 <ProfileNav />
-                <Input dispatch={props.dispatch} input={props.state.postInput}/>
+                <InputContainer store={props.store}/>
 
                 <Route exact path='/profile' render={() =>(
-                    <MyPosts postData={props.state.postData}/>
+                    <MyPostsContainer store={props.store}/>
                 )}/>
                 <Route exact path='/' render={() =>(
-                    <MyPosts postData={props.state.postData}/>
+                    <MyPostsContainer store={props.store}/>
                 )}/>
                 <Route path='/profile/friends' render={() =>(
-                   <Friends friends={props.state.friends}/>
+                   <FriendsContainer store={props.store}/>
                 )}/>
             </div>
         </BrowserRouter>

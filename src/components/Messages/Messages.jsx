@@ -2,19 +2,21 @@ import s from './Messages.module.scss';
 import MessagesPeople from "./MessagesPeople/MessagesPeople";
 import Dialog from "./Dialog/Dialog";
 import Input from "./Input/Input";
+import MessagesPeopleContainer from "./MessagesPeople/MessagesPeopleContainer";
+import DialogContainer from "./Dialog/DialogContainer";
+import InputContainer from "./Input/InputContainer";
 
 
 const Messages = (props) => {
     return (
       <div className={s.content}>
           <div className={s.people}>
-              <MessagesPeople messagesPeopleData={props.state.messagesPeopleData}/>
+              <MessagesPeopleContainer store={props.store}/>
           </div>
-        <Dialog messagesData={props.state.messagesData}/>
+        <DialogContainer store={props.store}/>
         <div className={s.input}>
-            <Input input={props.state.messageInput} dispatch={props.dispatch}/>
+            <InputContainer store={props.store}/>
         </div>
-
       </div>
     );
 }

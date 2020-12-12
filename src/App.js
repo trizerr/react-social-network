@@ -13,7 +13,6 @@ import {Route} from "react-router-dom";
 import Messages from "./components/Messages/Messages";
 
 const App = (props) => {
-    {debugger}
   return(
       <BrowserRouter>
     <div className="app-wrapper">
@@ -21,16 +20,14 @@ const App = (props) => {
       <Sidebar />
       <main className="app-wrapper-content">
               <Route path='/profile' render={() => (
-                  <Profile state={props.state.profilePage}
-                           dispatch={props.dispatch}/>
+                  <Profile store = {props.store}/>
               )}/>
 
               <Route path='/messages' render={() => (
-                  <Messages state={props.state.messagePage} dispatch={props.dispatch}/>
+                  <Messages store = {props.store}/>
               )}/>
               <Route exact path='/' render={() => (
-                  <Profile state={props.state.profilePage}
-                           dispatch={props.dispatch}/>
+                  <Profile store = {props.store}/>
               )}/>
       </main>
     </div>

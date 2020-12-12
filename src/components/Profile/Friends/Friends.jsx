@@ -5,12 +5,9 @@ import Friend from "./Friend/Friend";
 
 
 const Friends = (props) => {
-    let friendsElements = props.friends
-        .map(el => <Friend name={el.name} id={el.id}/>);
-
     return (
             <div className={s.friends}>
-                {friendsElements}
+                {props.friendsElements}
             </div>
     );
 }
