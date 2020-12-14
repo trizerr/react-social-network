@@ -1,20 +1,35 @@
 import React from "react";
 import {addPostActionCreator, pageInputChangeActionCreator} from "../../../redux/profileReducer";
 import Input from "./Input";
+import {connect} from "react-redux";
 
-const InputContainer = (props) => {
+
+
+
+const mapStateToProps = (state) =>{
+    debugger;
+    let input = state.profilePage.postInput;
+    return{
+        input: input
+    }
+}
+
+const mapDispatchToProps = (dispatch) =>{
     const send = () => {
         let action = addPostActionCreator();
-        props.store.dispatch(action);
+       dispatch(action);
     }
     const change = (text) => {
-
         let action = pageInputChangeActionCreator(text);
-        props.store.dispatch(action)
+        dispatch(action)
     }
-    let input = props.store.getState().profilePage.postInput;
-    return (
-        <Input change={change} send={send} input={input}/>
-    );
+    return{
+        send:send,
+        change:change
+    }
 }
+debugger;
+const InputContainer = connect(mapStateToProps, mapDispatchToProps)(Input);
+
+
 export default InputContainer;

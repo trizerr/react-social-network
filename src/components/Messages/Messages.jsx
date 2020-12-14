@@ -11,11 +11,11 @@ const Messages = (props) => {
     return (
       <div className={s.content}>
           <div className={s.people}>
-              <MessagesPeopleContainer store={props.store}/>
+              <MessagesPeopleContainer />
           </div>
-        <DialogContainer store={props.store}/>
+        <DialogContainer />
         <div className={s.input}>
-            <InputContainer store={props.store}/>
+            <InputContainer />
         </div>
       </div>
     );

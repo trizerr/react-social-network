@@ -1,5 +1,6 @@
 const ADD_POST = 'ADD-POST';
 const PAGE_INPUT_CHANGE = 'PAGE-INPUT-CHANGE';
+
 let initialState = {
     postData : [
         {id: 1, message: "My first post", likesCount: 15},
@@ -18,21 +19,32 @@ let initialState = {
 }
 
 export let profileReducer = (state = initialState, action) =>{
+    debugger;
     switch(action.type) {
-        case ADD_POST:
+        case ADD_POST:{
             let object = {
                 id: 4,
                 message: state.postInput,
                 likesCount: 1
             };
-            state.postData.push(object); // add new post
-            state = profileReducer(state,{type: 'PAGE-INPUT-CHANGE', text: ''});
-            break;
-        case PAGE_INPUT_CHANGE:
-            state.postInput = action.text; //update input text
-            break;
+            let newState =
+                {...state,
+                 postData:[...state.postData, object]
+                };
+            newState = profileReducer(newState,{type: 'PAGE-INPUT-CHANGE', text: ''});
+            return newState;
+        }
+        case PAGE_INPUT_CHANGE:{
+            return {
+                ...state,
+                postInput: action.text
+            };
+        }
+        default:
+            return state;
+
     }
-    return state;
+
 }
 export let addPostActionCreator = () => ({type:ADD_POST})
 export let pageInputChangeActionCreator = (text) =>

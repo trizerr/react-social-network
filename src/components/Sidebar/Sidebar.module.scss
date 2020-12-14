@@ -1,10 +1,9 @@
 .nav{
-
+    margin-top: 0;
+    padding-top: 50px;
     grid-area: nav;
     display: inline-grid;
-    align-items: center;
-    align-content: center;
-    grid-template-rows: repeat(8,12.5%) ;
+    grid-template-rows: repeat(8,80px) ;
     grid-template-columns: 100%;
     font-size: 18px;
 

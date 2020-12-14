@@ -1,7 +1,7 @@
 import s from './Input.module.scss';
 import React from "react";
 let inputElement = React.createRef();
-
+debugger;
 const Input = (props) => {
     let onChange =()=>{
         let text = inputElement.current.value;

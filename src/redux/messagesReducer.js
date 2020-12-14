@@ -17,20 +17,29 @@ let initialState = {
 
 export let messagesReducer = (state = initialState, action) =>{
     switch(action.type) {
-        case ADD_MESSAGE:
+        case ADD_MESSAGE:{
             let MESSAGE ={
                 who : 'me',
                 id:4,
                 text:state.messageInput,
             };
-            state.messagesData.push(MESSAGE);
-            state = messagesReducer(state,{type:'MESSAGE-INPUT-CHANGE',text:''});
-            break;
-        case MESSAGE_INPUT_CHANGE:
-            state.messageInput=action.text; //update messages input text
-            break;
+            let newState =
+                {
+                    ...state,
+                    messagesData:[...state.messagesData, MESSAGE],
+                };
+            newState = messagesReducer(newState,{type:'MESSAGE-INPUT-CHANGE',text:''});
+            return newState;
+        }
+        case MESSAGE_INPUT_CHANGE:{
+            return {
+                ...state,
+                messageInput: action.text
+            };
+        }
+        default:
+            return state;
     }
-    return state;
 }
 export let addMessageActionCreator = () => ({type:ADD_MESSAGE})
 export let messageInputChangeActionCreator = (text) =>
