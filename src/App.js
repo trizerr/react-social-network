@@ -7,10 +7,12 @@ import avatar from './img/avatar.png'
 import Header from "./components/Header/Header";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Profile from "./components/Profile/Profile";
+import Users from "./components/Users/Users";
 import s from "./components/Profile/Profile.module.scss";
 import {BrowserRouter, Switch} from "react-router-dom";
 import {Route} from "react-router-dom";
 import Messages from "./components/Messages/Messages";
+import UsersContainerr from "./components/Users/UsersContainerr";
 
 const App = (props) => {
   return(
@@ -20,14 +22,17 @@ const App = (props) => {
       <Sidebar />
       <main className="app-wrapper-content">
               <Route path='/profile' render={() => (
-                  <Profile store = {props.store}/>
+                  <Profile />
               )}/>
 
               <Route path='/messages' render={() => (
-                  <Messages store = {props.store}/>
+                  <Messages />
               )}/>
               <Route exact path='/' render={() => (
-                  <Profile store = {props.store}/>
+                  <Profile />
+              )}/>
+              <Route exact path='/find' render={() => (
+                  <UsersContainerr />
               )}/>
       </main>
     </div>

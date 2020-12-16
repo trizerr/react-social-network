@@ -19,16 +19,16 @@ const Profile = (props) => {
                     <ProfileInfo />
                 </div>
                 <ProfileNav />
-                <InputContainer store={props.store}/>
+                <InputContainer />
 
                 <Route exact path='/profile' render={() =>(
-                    <MyPostsContainer store={props.store}/>
+                    <MyPostsContainer />
                 )}/>
                 <Route exact path='/' render={() =>(
-                    <MyPostsContainer store={props.store}/>
+                    <MyPostsContainer />
                 )}/>
                 <Route path='/profile/friends' render={() =>(
-                   <FriendsContainer store={props.store}/>
+                   <FriendsContainer />
                 )}/>
             </div>
         </BrowserRouter>
