@@ -1,9 +1,10 @@
 import {connect} from "react-redux";
 import User from "./User/User";
-import {followActionCreator, unfollowActionCreator} from "../../redux/UsersReducer";
+import {followActionCreator, setUsersAC, unfollowActionCreator} from "../../redux/UsersReducer";
 import Users from "./Users";
 
 let mapStateToProps=(state)=>{
+    debugger;
     return {users:state.usersPage.users};
 }
 let mapDispatchToProps=(dispatch)=>{
@@ -17,7 +18,11 @@ let mapDispatchToProps=(dispatch)=>{
         debugger;
         dispatch(action);
     }
-    return {follow, unfollow}
+    let setUsers = (users) =>{
+        debugger;
+        dispatch(setUsersAC(users));
+    }
+    return {follow, unfollow, setUsers}
 }
 let UsersContainerr = connect(mapStateToProps, mapDispatchToProps)(Users);
 export default UsersContainerr;

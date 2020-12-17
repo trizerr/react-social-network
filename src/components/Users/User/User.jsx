@@ -23,8 +23,8 @@ const User =(props) =>{
         <div className={s.user}>
             <img src={avatar} className={s.avatar}/>
             <span className={s.name}> {props.name}</span>
-            <span className={s.description}> {props.description}</span>
-            <span className={s.location}>{props.country}, {props.city}</span>
+            <span className={s.description}> {props.description ? props.description : 'default description'}</span>
+            <span className={s.location}>{props.country ? props.country : 'Ukraine' }, {props.city ? props.city : 'Kyiv'}</span>
             <input type="button" value={button}  onClick={click}/>
         </div>
         );
