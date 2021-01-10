@@ -12,34 +12,29 @@ import store from "../../redux/redux-store";
 import React from "react";
 import * as axios from "axios";
 import Loader from "../Common/Loader/Loader";
+import {usersApi} from "../../api/api";
 
 class UsersAPI extends React.Component{
     componentDidMount() {
-
         if(this.props.users.length===0){ //setting users to state if not set
             this.props.setFetching(true);
-            axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${this.props.currentPage}`,
-                {withCredentials : true,
-                    headers : {  'API-KEY': '960a5064-17c0-4d42-9bc1-fb960b99d4ff' } }).then(
-                response =>{
+            usersApi.getUsers(this.props.pageSize,this.props.currentPage).then(
+                data =>{
                     this.props.setFetching(false);
-                    this.props.setUsers(response.data.items);
-                    this.props.setTotalCount(response.data.totalCount);
+                    this.props.setUsers(data.items);
+                    this.props.setTotalCount(data.totalCount);
                 }
-            );
+            )
         }
-
     }
     pageChanged(p){ // method for changing page
         debugger;
         this.props.setCurrentPage(p);
         this.props.setFetching(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${p}`,
-            {withCredentials : true,
-                headers : {  'API-KEY': '960a5064-17c0-4d42-9bc1-fb960b99d4ff' } }).then(
-            response =>{
+        usersApi.getUsers(this.props.pageSize,p).then(
+            data =>{
                 this.props.setFetching(false);
-                this.props.setUsers(response.data.items);
+                this.props.setUsers(data.items);
             }
         );
     }

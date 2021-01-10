@@ -3,6 +3,8 @@ import avatar from "../../../img/avatar.png";
 import React from 'react';
 import {NavLink} from "react-router-dom";
 import * as axios from "axios";
+import {usersApi} from "../../../api/api";
+
 const User =(props) =>{
     let button;
     if(props.followed===true){
@@ -12,22 +14,17 @@ const User =(props) =>{
     }
     let click = () =>{
         if(props.followed===true){
-            axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${props.id}`,
-                {withCredentials : true,
-                    headers : {  'API-KEY': '960a5064-17c0-4d42-9bc1-fb960b99d4ff' } }).then(
-                response =>{
-                    if(response.data.resultCode === 0){
+           usersApi.unfollow(props.id).then(
+                data =>{
+                    if(data.resultCode === 0){
                         props.unfollow(props.id);
                     }
                 }
             );
-
         }else{
-            axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${props.id}`,{},
-                {withCredentials : true,
-                    headers : {  'API-KEY': '960a5064-17c0-4d42-9bc1-fb960b99d4ff' } }).then(
-                response =>{
-                    if(response.data.resultCode === 0){
+            usersApi.follow(props.id).then(
+                data =>{
+                    if(data.resultCode === 0){
                         props.follow(props.id);
                     }
                 }
