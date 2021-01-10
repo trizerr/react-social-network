@@ -1,7 +1,6 @@
 import s from './Messages.module.scss';
 import MessagesPeople from "./MessagesPeople/MessagesPeople";
 import Dialog from "./Dialog/Dialog";
-import Input from "./Input/Input";
 import MessagesPeopleContainer from "./MessagesPeople/MessagesPeopleContainer";
 import DialogContainer from "./Dialog/DialogContainer";
 import InputContainer from "./Input/InputContainer";

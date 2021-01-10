@@ -1,6 +1,6 @@
 import React from "react";
 import {addMessageActionCreator, messageInputChangeActionCreator} from "../../../redux/messagesReducer";
-import Input from "./Input";
+import Input from "./../../Common/Input/Input";
 import {connect} from "react-redux";
 
 

@@ -1,13 +1,12 @@
 import React from "react";
 import {addPostActionCreator, pageInputChangeActionCreator} from "../../../redux/profileReducer";
-import Input from "./Input";
+import Input from "./../../Common/Input/Input";
 import {connect} from "react-redux";
 
 
 
 
 const mapStateToProps = (state) =>{
-    debugger;
     let input = state.profilePage.postInput;
     return{
         input: input
@@ -28,7 +27,6 @@ const mapDispatchToProps = (dispatch) =>{
         change:change
     }
 }
-debugger;
 const InputContainer = connect(mapStateToProps, mapDispatchToProps)(Input);
 
 

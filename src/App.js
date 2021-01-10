@@ -13,30 +13,32 @@ import {BrowserRouter, Switch} from "react-router-dom";
 import {Route} from "react-router-dom";
 import Messages from "./components/Messages/Messages";
 import UsersContainerr from "./components/Users/UsersContainerr";
+import ProfileContainer from "./components/Profile/ProfileContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
 
 const App = (props) => {
   return(
-      <BrowserRouter>
+
     <div className="app-wrapper">
-      <Header />
+      <HeaderContainer />
       <Sidebar />
       <main className="app-wrapper-content">
-              <Route path='/profile' render={() => (
-                  <Profile />
+              <Route path='/profile/:userId?' render={() => (
+                  <ProfileContainer />
               )}/>
 
               <Route path='/messages' render={() => (
                   <Messages />
               )}/>
               <Route exact path='/' render={() => (
-                  <Profile />
+                  <ProfileContainer />
               )}/>
               <Route exact path='/find' render={() => (
                   <UsersContainerr />
               )}/>
       </main>
     </div>
-      </BrowserRouter>
+
   );
 }
 

@@ -2,7 +2,6 @@ import avatar from "./../../img/avatar.png";
 import s from './Profile.module.scss';
 import MyPosts from "./MyPosts/MyPosts";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
-import Input from "./Input/Input";
 import ProfileNav from "./ProfileNav/ProfileNav";
 import {BrowserRouter, Route} from "react-router-dom";
 import Friends from "./Friends/Friends";
@@ -16,12 +15,12 @@ const Profile = (props) => {
         <BrowserRouter>
             <div className={s.profileContent}>
                 <div className={s.background}>
-                    <ProfileInfo />
+                    <ProfileInfo {...props}/>
                 </div>
                 <ProfileNav />
                 <InputContainer />
 
-                <Route exact path='/profile' render={() =>(
+                <Route path='/profile' render={() =>(
                     <MyPostsContainer />
                 )}/>
                 <Route exact path='/' render={() =>(
