@@ -9,7 +9,7 @@ import {connect} from "react-redux";
 const mapStateToProps = (state) =>{
     let input = state.profilePage.postInput;
     return{
-        input: input
+        input
     }
 }
 
@@ -23,8 +23,8 @@ const mapDispatchToProps = (dispatch) =>{
         dispatch(action)
     }
     return{
-        send:send,
-        change:change
+        send,
+        change
     }
 }
 const InputContainer = connect(mapStateToProps, mapDispatchToProps)(Input);

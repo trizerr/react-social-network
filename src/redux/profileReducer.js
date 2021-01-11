@@ -1,3 +1,5 @@
+import {profileApi} from "../api/api";
+
 const ADD_POST = 'ADD-POST';
 const PAGE_INPUT_CHANGE = 'PAGE-INPUT-CHANGE';
 const SET_PROFILE = 'SET_PROFILE';
@@ -58,4 +60,14 @@ export let profileReducer = (state = initialState, action) =>{
 export let addPostActionCreator = () => ({type:ADD_POST})
 export let pageInputChangeActionCreator = (text) =>
     ({type:PAGE_INPUT_CHANGE, text:text});
-export let setProfile = (profile) => ({type:SET_PROFILE, profile})
+export let setProfileAC = (profile) => ({type:SET_PROFILE, profile})
+
+export let setProfile = (userId) =>{
+    return (dispatch) =>{
+        profileApi.setProfile(userId).then(
+            data =>{
+                dispatch(setProfileAC(data));
+            }
+        );
+    }
+}
