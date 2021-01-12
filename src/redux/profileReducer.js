@@ -3,6 +3,7 @@ import {profileApi} from "../api/api";
 const ADD_POST = 'ADD-POST';
 const PAGE_INPUT_CHANGE = 'PAGE-INPUT-CHANGE';
 const SET_PROFILE = 'SET_PROFILE';
+const SET_STATUS = 'SET_STATUS';
 
 let initialState = {
     postData : [
@@ -19,7 +20,8 @@ let initialState = {
         {name: "Bogdan", id: 6}
     ],
     postInput:'',
-    profile:null
+    profile:null,
+    status:null
 }
 
 export let profileReducer = (state = initialState, action) =>{
@@ -51,6 +53,12 @@ export let profileReducer = (state = initialState, action) =>{
                 profile:action.profile
             }
         }
+        case SET_STATUS:{
+            return {
+                ...state,
+                status:action.status
+            }
+        }
         default:
             return state;
 
@@ -61,12 +69,27 @@ export let addPostActionCreator = () => ({type:ADD_POST})
 export let pageInputChangeActionCreator = (text) =>
     ({type:PAGE_INPUT_CHANGE, text:text});
 export let setProfileAC = (profile) => ({type:SET_PROFILE, profile})
+let setStatus = (status) =>({type:SET_STATUS, status});
 
 export let setProfile = (userId) =>{
     return (dispatch) =>{
         profileApi.setProfile(userId).then(
             data =>{
                 dispatch(setProfileAC(data));
+            }
+        );
+        profileApi.getStatus(userId).then(
+          data =>{
+              dispatch(setStatus(data))
+          }
+        );
+    }
+}
+export let updateStatus = (status) =>{
+    return (dispatch) =>{
+        profileApi.updateStatus(status).then(
+            data =>{
+                dispatch(setStatus(status))
             }
         );
     }
