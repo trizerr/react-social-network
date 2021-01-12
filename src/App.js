@@ -6,6 +6,7 @@ import Messages from "./components/Messages/Messages";
 import UsersContainerr from "./components/Users/UsersContainerr";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
+import MessagesContainer from "./components/Messages/MessagesContainer";
 
 const App = (props) => {
   return(
@@ -19,7 +20,7 @@ const App = (props) => {
               )}/>
 
               <Route path='/messages' render={() => (
-                  <Messages />
+                  <MessagesContainer />
               )}/>
               <Route exact path='/' render={() => (
                   <ProfileContainer />
