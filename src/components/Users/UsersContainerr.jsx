@@ -50,7 +50,7 @@ let mapDispatchToProps=(dispatch)=>{
         dispatch(setUsersAC(users));
     }
     let setTotalCount=(count)=>{
-        debugger;
+
         dispatch(setTotalCountAC(count));
     }
     let setCurrentPage = (page) =>{

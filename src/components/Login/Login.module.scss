@@ -1,0 +1,32 @@
+@import "../../mixins/mixins";
+
+.login{
+  text-align: center;
+  .form{
+    margin: 0 auto;
+    width:350px;
+    padding-top:10%;
+  }
+  input{
+    height:30px;
+    width:350px;
+  }
+  .checkbox{
+    height:15px;
+    width:20px;
+    float:left;
+
+  }
+  .checkboxLabel{
+    text-align: left;
+    display: block;
+    padding-top: 5px;
+  }
+  .submit{
+    @include button;
+    width:75px;
+    float:right;
+  }
+
+}
+

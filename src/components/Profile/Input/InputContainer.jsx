@@ -7,15 +7,12 @@ import {connect} from "react-redux";
 
 
 const mapStateToProps = (state) =>{
-    let input = state.profilePage.postInput;
-    return{
-        input
-    }
+
 }
 
 const mapDispatchToProps = (dispatch) =>{
-    const send = () => {
-        let action = addPostActionCreator();
+    const send = (message) => {
+        let action = addPostActionCreator(message);
        dispatch(action);
     }
     const change = (text) => {

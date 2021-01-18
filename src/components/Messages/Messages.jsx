@@ -14,7 +14,7 @@ const Messages = (props) => {
           </div>
         <DialogContainer />
         <div className={s.input}>
-            <InputContainer />
+                <InputContainer />
         </div>
       </div>
     );

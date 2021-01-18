@@ -45,12 +45,12 @@ export let UsersReducer = (state=initialState, action) =>{
         case SET_CURRENT_PAGE:
             return {...state, currentPage: action.page};
         case SET_TOTAL_COUNT:
-            debugger;
+
             return {...state, totalCount: action.count};
         case IS_FETCHING:
             return {...state, isFetching: action.isFetching};
         case IS_FOLLOWING_IN_PROGRESS:
-            debugger;
+
                 return{
                     ...state,
                     isFollowingInProgress:action.isInProgress ?

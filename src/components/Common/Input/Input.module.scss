@@ -1,14 +1,15 @@
 @import './../../../mixins/mixins';
 
-.postWrapper{
+.postWrapper {
   grid-row-start: 3;
   display: inline-grid ;
-  grid-template-columns: 8fr 150px;
+  grid-template-columns: 100%;
   grid-template-rows: 100% ;
-  grid-gap: 10px 60px;
+
   font-size: 17px;
   input[type=text]{
     height:40px;
+    width: 100%;
     font-size: 17px;
     padding-left: 10px;
     border-radius: 10px;
@@ -16,5 +17,10 @@
   }
   input[type=button]{
     @include button;
+  }
+  form{
+    display: inline-grid ;
+    grid-template-columns: 8fr 150px;
+    grid-gap: 10px 60px;
   }
 }

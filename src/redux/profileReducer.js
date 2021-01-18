@@ -19,7 +19,6 @@ let initialState = {
         {name: "Andddswrew", id: 5},
         {name: "Bogdan", id: 6}
     ],
-    postInput:'',
     profile:null,
     status:null
 }
@@ -28,9 +27,8 @@ export let profileReducer = (state = initialState, action) =>{
     switch(action.type) {
         case ADD_POST:{
             let object = {
-                message: state.postInput,
+                message: action.message,
                 id: 4,
-
                 likesCount: 1
             };
             let newState =
@@ -47,7 +45,7 @@ export let profileReducer = (state = initialState, action) =>{
             };
         }
         case SET_PROFILE:{
-            debugger;
+
             return {
                 ...state,
                 profile:action.profile
@@ -65,7 +63,7 @@ export let profileReducer = (state = initialState, action) =>{
     }
 
 }
-export let addPostActionCreator = () => ({type:ADD_POST})
+export let addPostActionCreator = (message) => ({type:ADD_POST, message})
 export let pageInputChangeActionCreator = (text) =>
     ({type:PAGE_INPUT_CHANGE, text:text});
 export let setProfileAC = (profile) => ({type:SET_PROFILE, profile})

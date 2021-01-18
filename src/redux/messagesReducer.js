@@ -11,8 +11,7 @@ let initialState = {
         {name: "Denys", id: 1},
         {name: "Andrew", id: 2},
         {name: "Bogdan", id: 3}
-    ],
-    messageInput:''
+    ]
 }
 
 export let messagesReducer = (state = initialState, action) =>{
@@ -21,7 +20,7 @@ export let messagesReducer = (state = initialState, action) =>{
             let MESSAGE ={
                 who : 'me',
                 id:4,
-                text:state.messageInput,
+                text:action.message,
             };
             let newState =
                 {
@@ -41,6 +40,6 @@ export let messagesReducer = (state = initialState, action) =>{
             return state;
     }
 }
-export let addMessageActionCreator = () => ({type:ADD_MESSAGE})
+export let addMessageActionCreator = (message) => ({type:ADD_MESSAGE, message})
 export let messageInputChangeActionCreator = (text) =>
     ({type:MESSAGE_INPUT_CHANGE, text:text})

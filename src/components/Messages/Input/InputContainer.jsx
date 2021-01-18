@@ -19,21 +19,15 @@ import {connect} from "react-redux";
     );
 }*/
 let mapStateToProps = (state) => {
-    let input = state.messagePage.messageInput;
-    return{input};
+
 }
 let mapDispatchToProps = (dispatch) => {
-    const send = () => {
-        let action = addMessageActionCreator();
+    const send = (message) => {
+        let action = addMessageActionCreator(message);
         dispatch(action);
     }
-    const change = (text) => {
-        let action = messageInputChangeActionCreator(text);
-        dispatch(action)
-    }
     return{
-        send,
-        change
+        send
     }
 }
 

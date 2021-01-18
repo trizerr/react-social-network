@@ -14,7 +14,7 @@ class ProfileInfo extends React.Component{
         oldStatus:this.props.status
     }
     inputOnChange(){
-        debugger;
+
         let text = this.inputElement.current.value;
         this.setState({
             status:text
@@ -34,8 +34,16 @@ class ProfileInfo extends React.Component{
         }
     }
 
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if(prevProps.status !== this.props.status){
+            this.setState({
+                status: this.props.status
+            })
+        }
+    }
+
     render(){
-        debugger;
+
 
         if(!this.props.profile){
             return    <Loader/>

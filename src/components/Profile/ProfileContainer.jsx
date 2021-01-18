@@ -9,7 +9,7 @@ import {compose} from "redux";
 class ProfileContainer extends React.Component{
 
     componentDidMount() {
-       this.userId = this.props.userId;
+
       if(this.props.match.params.userId){
           this.userId = this.props.match.params.userId;
       }
@@ -30,7 +30,7 @@ let mapStateToProps = (state) =>{
 export default compose(
     connect(mapStateToProps, {setProfile, updateStatus}),
     withRouter,
-    withAuthRedirect
+    /*withAuthRedirect*/
 )(ProfileContainer);
 /*
 let profileWithAuthRedirect = withAuthRedirect(ProfileContainer);

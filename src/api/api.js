@@ -37,6 +37,20 @@ export const authApi = {
               return response.data;
             }
         );
+    },
+    login(formData){
+        return  instance.post(`auth/login`, formData).then(
+            response =>{
+                return response.data;
+            }
+        );
+    },
+    logout(){
+        return  instance.post(`auth/logout`).then(
+            response =>{
+                return response.data;
+            }
+        );
     }
 }
 

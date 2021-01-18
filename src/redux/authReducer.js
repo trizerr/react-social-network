@@ -2,12 +2,14 @@ import {authApi} from "../api/api";
 
 let SET_USER_DATA = 'SET_USER_DATA';
 let LOG_OUT = 'LOG_OUT';
+let WRONG_PASSWORD = 'WRONG_PASSWORD';
 
 let initialState = {
     userId : null,
     email : null,
     login : null,
-    isLoggedIn : false
+    isLoggedIn : false,
+    wrongPassword : false
 }
 
 export let authReducer = (state=initialState, action) =>{
@@ -16,11 +18,17 @@ export let authReducer = (state=initialState, action) =>{
             return{
                 ...state,
                 ...action.data,
-                isLoggedIn: true
+                isLoggedIn: true,
+                wrongPassword:false
             }
         case LOG_OUT:
             return{
                 ...initialState
+            }
+        case WRONG_PASSWORD:
+            return{
+                ...initialState,
+                wrongPassword:true
             }
         default:
             return state;
@@ -29,6 +37,7 @@ export let authReducer = (state=initialState, action) =>{
 
 export let setUserData = (userId, email, login) =>({type:SET_USER_DATA, data:{userId,email,login}});
 let logOut = () =>({type:LOG_OUT});
+let wrongPassword = () =>({type:WRONG_PASSWORD})
 
 export let authMe = () =>{
     return (dispatch) =>{
@@ -44,3 +53,32 @@ export let authMe = () =>{
         );
     }
 }
+
+export let login = (formData) =>{
+    return (dispatch) =>{
+        authApi.login(formData).then(
+            response =>{
+                if(response.resultCode === 0){
+                    authMe();
+                }
+                if(response.resultCode === 1){
+                    dispatch(wrongPassword());
+                }
+            }
+        )
+    }
+}
+
+export let logout = () =>{
+    return (dispatch) =>{
+        authApi.logout().then(
+            response =>{
+                if(response.resultCode === 0){
+                    dispatch(logOut());
+                }
+            }
+        )
+    }
+}
+
+
